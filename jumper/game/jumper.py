@@ -4,7 +4,7 @@ class Jumper:
     """
     
     Attributes:
-        dice (list): A list of five numbers representing the dice values.
+        life (int): A chance that player try answering
     """
 
     def __init__(self):
@@ -29,19 +29,23 @@ class Jumper:
         self.life -= 1
 
     def get_life(self):
-        """Determines whether or not the Word can throw again according to 
-        the rules. 
-
+        """
         Args: 
             self (Word): An instance of Word.
         
         Returns:
-            boolean: True if the list of dice has at least a five, or a one, or 
-            the number of throws is zero; false if otherwise.
+            int: return life
         """
         return self.life
 
     def is_alive(self):
+        """
+        Args: 
+            self (Word): An instance of Word.
+        
+        Returns:
+            boolean: Return True if life is greater than 0, or return false
+        """
         if self.life > 0:
             return True
         else:

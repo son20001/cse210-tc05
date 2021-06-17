@@ -20,14 +20,14 @@ class Word:
         self.discovered_letter = []
         
     def test_letter(self, letter):
-        """return True
+        """
 
         Args: 
             self (Word): An instance of Word.
+            letter (String): a character from user input
         
         Returns:
-            boolean: True if the list of dice has at least a five, or a one, or 
-            the number of throws is zero; false if otherwise.
+            boolean: True if the letter is in word, False if the letter is not in word
         """
         if letter in self.word:
             self.discovered_letter.append(letter)
