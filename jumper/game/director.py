@@ -25,7 +25,7 @@ class Director:
             self (Director): an instance of Director.
         """
         self.console = Console()
-        self.jumper = jumper()
+        self.jumper = Jumper()
         self.keep_playing = True
         self.word = Word()
         self.letter = ""
@@ -50,7 +50,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        letter = self.console.read_letter("Guess a letter [a-z]: ")
+        self.letter = self.console.read_letter("Guess a letter [a-z]: ")
         
         
         
@@ -61,7 +61,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if self.word.test_word(letter) == FAILED:
+        if self.word.test_letter(self.letter) == FAILED:
             self.jumper.decrease_life()
         
     def do_outputs(self):
@@ -73,5 +73,5 @@ class Director:
         """
         self.console.print_word(self.word)
         self.console.print_jumper(self.jumper)
-        if not self.jumper.is_alive():
+        if (not self.jumper.is_alive()) or (self.word.is_completed()):
             self.keep_playing = False

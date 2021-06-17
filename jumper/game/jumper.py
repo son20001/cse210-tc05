@@ -1,6 +1,6 @@
 FAILED = False
 
-class Word:
+class Jumper:
     """
     
     Attributes:
@@ -42,7 +42,7 @@ class Word:
         return self.life
 
     def is_alive(self):
-        if life > 0:
+        if self.life > 0:
             return True
         else:
             return False

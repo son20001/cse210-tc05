@@ -1,4 +1,3 @@
-from jumper.game.director import FAILED
 import random
 
 FAILED = False
@@ -35,3 +34,19 @@ class Word:
             return True
         else:
             return FAILED
+    
+    def is_completed(self):
+        if len(self.discovered_letter) == 0:
+            return False
+        word = list(self.word)
+
+        for i in range(len(word)):
+            if word[i] in self.discovered_letter:
+                word[i] = " "
+
+        result = True
+        for i in word:
+            if i != " ":
+                result = False
+
+        return result
